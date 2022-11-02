@@ -1,0 +1,38 @@
+.logo {
+  max-height: 38px;
+  cursor: pointer;
+  margin-left: 14px;
+}
+
+.logoGreen {
+  display: none;
+}
+
+.logoBlack {
+ display: block;
+}
+
+@media (min-width: 460px) {
+  .logo {
+    margin-left: 30px;
+  }
+}
+
+@media (min-width: 1023px) {
+  .logo {
+    margin-left: 70px;
+  }
+}
+
+@media (min-width: 460px) {
+  .logoGreen {
+    display: block;
+  }
+}
+
+@media (min-width: 460px) {
+  .logoBlack {
+    display: none;
+  }
+}
+

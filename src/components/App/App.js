@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
+import Header from '../Header/Header';
 import AboutProject from '../AboutProject/AboutProject';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -8,11 +9,12 @@ import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 
-
 function App() {
 
   return ( 
-      <Switch>
+    <div className='app'>
+      <Header />
+      {/* <Switch>
         <Route exact path="/">
           <AboutProject />
         </Route>
@@ -31,7 +33,8 @@ function App() {
         <Route path="/signin">
           <Login />
         </Route>
-      </Switch>
+      </Switch> */}
+    </div>
   );
 };
 
