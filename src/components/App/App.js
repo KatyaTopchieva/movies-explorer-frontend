@@ -30,9 +30,9 @@ function App() {
         <Route path="/signup">
           <Register />
         </Route>
-        {/* <Route path="/signin">
+        <Route path="/signin">
           <Login />
-        </Route> */}
+        </Route>
       </Switch>
     </div>
   );

@@ -1,7 +1,6 @@
 import './Register.css'
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import Logo from '../Logo/Logo'
 
 function Register(){
 
@@ -25,7 +24,7 @@ function Register(){
 					<input className="register__input" type="password" name="password" placeholder="Пароль" required minLength="6" />
 					<span className="register__input-error"></span>
 				</div>
-				<span className="registration__input-error"></span>
+				<span className="register__input-error"></span>
 				<button className="register__button" type="submit">Зарегистрироваться</button>
 				<p className="register__login-sign">Уже зарегистрированы?&nbsp;
 					<Link to="/signin" className="register__signin">Войти</Link>
