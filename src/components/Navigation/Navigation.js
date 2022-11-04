@@ -7,11 +7,11 @@ function Navigation(props) {
 	const [isClicked, setIsClicked] = useState(false);
 
 	function handleMenuOpen() {
-			setIsClicked(true)
-		};
+		setIsClicked(true)
+	};
 	
 	function handleMenuClose() {
-			setIsClicked(false)
+		setIsClicked(false)
 	};
 
 	return (
@@ -35,7 +35,7 @@ function Navigation(props) {
 						</Link>
 					</nav>
 				</div>
-				<button className="navigation__popup-button navigation__popup-button_burger hover-button" onClick={handleMenuOpen}></button>
+				<button className="navigation__popup-button navigation__popup-button_burger" onClick={handleMenuOpen}></button>
 			</>
 			)}
 		</>

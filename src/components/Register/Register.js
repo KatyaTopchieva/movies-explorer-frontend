@@ -1,13 +1,13 @@
 import './Register.css'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../Logo/Logo'
+// import Logo from '../Logo/Logo'
 
 function Register(){
 
   return (
     <section className="register">
-			<Logo />
+			<div className="register__logo"></div>
 			<h2 className="register__title">Добро пожаловать!</h2>
 			<form className="register__form">
 				<div className="register__field">
