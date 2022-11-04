@@ -5,6 +5,14 @@
 	align-items: center;
 	width: 100%;
 	box-sizing: border-box;
-	background-color: rgb(231, 120, 120);
+	background-color: #FFF;
 	min-height: 74px;
+	padding-left: 14px;
+}
+
+@media (min-width: 768px) {
+	.header {
+		background-color: #073042;
+		padding-left: 30px;
+	}
 }

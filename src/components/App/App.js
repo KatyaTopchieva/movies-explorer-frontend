@@ -14,8 +14,8 @@ function App() {
   return ( 
     <div className='app'>
       <Header />
-      {/* <Switch>
-        <Route exact path="/">
+      <Switch>
+        {/* <Route exact path="/">
           <AboutProject />
         </Route>
         <Route path="/movies">
@@ -26,14 +26,14 @@ function App() {
         </Route>
         <Route path="/profile">
           <Profile />
-        </Route>
+        </Route> */}
         <Route path="/signup">
           <Register />
         </Route>
-        <Route path="/signin">
+        {/* <Route path="/signin">
           <Login />
-        </Route>
-      </Switch> */}
+        </Route> */}
+      </Switch>
     </div>
   );
 };

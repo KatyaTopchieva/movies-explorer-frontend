@@ -15,7 +15,7 @@ function Header() {
     <Route exact path={endpoints}>
       <header className='header'>
         <Logo />
-        {/* <Navigation /> */}
+        <Navigation />
       </header>
     </Route>
   )

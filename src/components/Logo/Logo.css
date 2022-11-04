@@ -1,7 +1,6 @@
 .logo {
   max-height: 38px;
   cursor: pointer;
-  margin-left: 14px;
 }
 
 .logoGreen {
@@ -13,8 +12,12 @@
 }
 
 @media (min-width: 460px) {
-  .logo {
-    margin-left: 30px;
+  .logoGreen {
+    display: block;
+  }
+
+  .logoBlack {
+    display: none;
   }
 }
 
@@ -23,16 +26,3 @@
     margin-left: 70px;
   }
 }
-
-@media (min-width: 460px) {
-  .logoGreen {
-    display: block;
-  }
-}
-
-@media (min-width: 460px) {
-  .logoBlack {
-    display: none;
-  }
-}
-
