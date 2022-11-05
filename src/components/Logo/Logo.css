@@ -20,9 +20,3 @@
     display: none;
   }
 }
-
-@media (min-width: 1023px) {
-  .logo {
-    margin-left: 70px;
-  }
-}
