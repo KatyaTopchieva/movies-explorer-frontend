@@ -1,5 +1,6 @@
 .app {
     font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;

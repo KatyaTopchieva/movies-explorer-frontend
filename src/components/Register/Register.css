@@ -15,8 +15,6 @@
   }
 
   .register__title {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-style: normal;
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
@@ -36,8 +34,6 @@
   }
   
   .register__label {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-style: normal;
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
@@ -46,8 +42,6 @@
   }
   
   .register__input {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
@@ -66,7 +60,6 @@
   }
   
   .register__input-error {
-    font-style: normal;
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
@@ -75,7 +68,6 @@
   }
 
   .register__button {
-    font-style: normal;
     font-size: 12px;
     line-height: 14.5px;
     font-weight: 500;
@@ -95,7 +87,6 @@
   }
 
   .register__login-sign {
-    font-style: normal;
     font-size: 12px;
     line-height: 14.5px;
     text-align: center;
