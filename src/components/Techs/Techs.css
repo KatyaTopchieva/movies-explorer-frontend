@@ -11,7 +11,7 @@
   letter-spacing: -0.04em;
   margin: 0 18px 0;
   padding: 70px 0 28px;
-  border-bottom: 1px solid rgba(0, 0, 0, .8);
+  border-bottom: 1px solid #000;
 }
 
 .techs__subtitle {
@@ -33,11 +33,11 @@
 
 .techs__cards {
   display: grid;
-  margin: 50px auto 70px;
+  margin: 50px auto 0;
   grid-template-columns: repeat(auto-fill, minmax(84px, max-content));
   gap: 10px;
   justify-content: center;
-  padding: 0;
+  padding: 0 0 70px;
   max-height: 366px;
   max-width: 178px;
 }
