@@ -15,7 +15,7 @@ function NavTab() {
           <a className='navtab__link' href='#about-me'>Студент</a>
         </li>
       </ul>
-      <button className='navtab__button'>
+      <button className='navtab__button' type="button">
         <a className='navtab__button-link' href='#about-project'>Узнать больше</a>
       </button>
     </nav>

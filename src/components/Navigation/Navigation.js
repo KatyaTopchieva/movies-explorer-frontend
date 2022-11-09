@@ -25,7 +25,7 @@ function Navigation(props) {
 				<>
 				<div className={`${isClicked ? "overlay" : ""}`}>
 					<nav className={`navigation navigation__popup ${isClicked ? "navigation__popup_open" : ""}`}>
-						<button className="navigation__popup-button navigation__popup-button_close" onClick={handleMenuClose}></button>
+						<button className="navigation__popup-button navigation__popup-button_close" type="button" onClick={handleMenuClose}></button>
 						<Link to="/" className="navigation__link navigation__link_loggedin" onClick={handleMenuClose}>Главная</Link>
 						<NavLink to="/movies" className="navigation__link navigation__link_loggedin" activeClassName="navigation__link_active" onClick={handleMenuClose}>Фильмы</NavLink>
 						<NavLink to="/saved-movies" className="navigation__link navigation__link_loggedin" activeClassName="navigation__link_active" onClick={handleMenuClose}>Сохранённые фильмы</NavLink>
@@ -35,7 +35,7 @@ function Navigation(props) {
 						</Link>
 					</nav>
 				</div>
-				<button className="navigation__popup-button navigation__popup-button_burger" onClick={handleMenuOpen}></button>
+				<button className="navigation__popup-button navigation__popup-button_burger" type="button" onClick={handleMenuOpen}></button>
 			</>
 			)}
 		</>
