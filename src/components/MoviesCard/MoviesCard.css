@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 300px;
   height: 238.3px;
-  background:  #FDFDFD;;
+  background: #FDFDFD;;
 }
 
 .moviescard__info {
@@ -35,24 +35,50 @@
   position: absolute;
   top: 4.6px;
   right: 0;
-  cursor: pointer;
-  background-color: transparent;
 }
 
 .moviescard__button-save_active {
   background-image: url('../../images/saved_flag.svg');
-  object-fit: contain;
+  background-color: transparent;
+  object-fit: cover;
   width: 30px;
   height: 30px;
+  border-radius: 36px;
   border: none;
+  cursor: pointer;
 }
 
-.moviescard__button-save_inactive {
+.moviescard__button-save {
+  background-image: url('../../images/save_flag.svg');
+  background-color: transparent;
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 36px;
+  border: none;
+  cursor: pointer;
+}
+
+.moviescard__button-save:active {
   background-image: url('../../images/saved_flag.svg');
+  transition: 0.6s;
 }
 
 .moviescard__button-delete {
- 
+  background-image: url('../../images/delete.svg');
+  background-color: transparent;
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 36px;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+.moviescard__button-delete:active {
+  background-color: #A0A0A0;
+  transition: 0.6s;
 }
 
 .moviescard__image {
@@ -63,7 +89,61 @@
 }
 
 @media (min-width: 768px) {
+  .moviescard {
+    flex-direction: column-reverse;
+    width: 339px;
+    height: 269px;
+    background: #FFF;
+  }
+  
+  .moviescard__info {
+    margin: 14px 0 0;
+  }
+  
+  .moviescard__title {
+    font-size: 13px;
+    line-height: 16px;
+    padding-bottom: 29px;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  
+  .moviescard__duration {
+    margin: 6px 0 0;
+  }
+  
+  .moviescard__button {
+    top: 0;
+  }
+  
+  .moviescard__button-save_active {
+    background-image: url('../../images/saved_heart.svg');
+    width: 24px;
+    height: 24px;
+  }
+  
+  .moviescard__button-save {
+    background-image: url('../../images/save_heart.svg');
+    width: 24px;
+    height: 24px;
+  }
 
+  .moviescard__button-save:active {
+    background-image: url('../../images/saved_heart.svg');
+    transition: 0.6s;
+  }
+  
+  .moviescard__button-delete {
+    background-image: url('../../images/delete.svg');
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    display: none;
+  }
+  
+  .moviescard__image {
+    width: 339px;
+    height: 190px;
+  }
 }
 
 @media (min-width: 1023px) {

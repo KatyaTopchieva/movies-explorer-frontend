@@ -8,9 +8,29 @@
 
 .moviescardlist__list {
   display: grid;
-  grid-template-rows: 169.7px;
+  grid-template-rows: 238.3px;
   row-gap: 16.2px;
   justify-items: center;
   padding: 0;
   margin: 40.4px auto 30.3px;
+}
+
+@media (min-width: 768px) {
+  .moviescardlist {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 100;
+    background: #FFF;
+  }
+  
+  .moviescardlist__list {
+    display: grid;
+    grid-template-columns: repeat(2, 339px);
+    grid-template-rows: repeat(4, 269px);
+    gap: 30px;
+    justify-items: center;
+    padding: 0;
+    margin: 70px auto 10px;
+  }
 }
