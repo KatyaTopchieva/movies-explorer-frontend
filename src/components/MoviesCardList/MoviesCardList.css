@@ -1,5 +1,16 @@
 .moviescardlist {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  width: 100;
+  background: #FFF;
+}
+
+.moviescardlist__list {
   display: grid;
-  grid-template-columns: 1fr;
-  width: 91%;
+  grid-template-rows: 169.7px;
+  row-gap: 16.2px;
+  justify-items: center;
+  padding: 0;
+  margin: 40.4px auto 30.3px;
 }
