@@ -20,7 +20,6 @@ function App() {
           <Register />
         </Route>
         <Route path="/signin">
-          
           <Login />
         </Route>
         <Route path="/movies">

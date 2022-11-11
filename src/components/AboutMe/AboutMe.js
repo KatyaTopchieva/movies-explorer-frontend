@@ -4,7 +4,7 @@ import avatar from '../../images/avatar.jpg'
 
 function AboutMe() {
   return (
-    <section className="aboutMe">
+    <section className="aboutMe" id="about-me">
       <h2 className="aboutMe__title">Студент</h2>
       <img className="aboutMe__image" src={avatar} alt="Фото студента"/>
       <h3 className="aboutMe__name">Екатерина</h3>
