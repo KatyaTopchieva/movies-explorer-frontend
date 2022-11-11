@@ -31,3 +31,47 @@
 .pagenotfaund__link:active {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
 }
+
+@media (min-width: 768px) {
+  .pagenotfaund {
+    height: 1024px;
+  }
+   
+   .pagenotfaund__code {
+    font-size: 140px;
+    line-height: 169px;
+    margin: 408px auto 0;
+  }
+   
+   .pagenotfaund__text {
+    font-size: 16px;
+    line-height: 19px;
+     margin: 5px auto 0;
+  }
+   
+   .pagenotfaund__link {
+    font-size: 14px;
+    line-height: 17px;
+    margin: 184px auto 0;
+  }
+}
+
+@media (min-width: 1023px) {
+  .pagenotfaund {
+    height: 700px;
+  }
+   
+   .pagenotfaund__code {
+    font-size: 140px;
+    line-height: 169px;
+    margin: 246px auto 0;
+  }
+
+  .pagenotfaund__link {
+    color: #3456F3;
+  }
+
+  .pagenotfaund__link:hover {
+    color: #000;
+  }
+}
