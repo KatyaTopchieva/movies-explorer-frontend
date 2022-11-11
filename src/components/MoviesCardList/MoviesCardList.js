@@ -24,8 +24,10 @@ function MoviesCardList() {
         <MoviesCard />
         <MoviesCard />
       </ul>
-      <div className="moviescardlist__text">Ничего не найдено</div>
-      <button className="moviescardlist__button" type="button">Еще</button>
+      <div className="moviescardlist__answer-box">
+        <p className="moviescardlist__text">Ничего не найдено</p>
+        <button className="moviescardlist__button" type="button">Еще</button>
+      </div>
     </div>
   )
 }
