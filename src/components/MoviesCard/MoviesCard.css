@@ -146,6 +146,18 @@
   }
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1280px) {
+  .moviescard {
+    width: 270px;
+    height: 230px;
+  }
   
+  .moviescard__button {
+    top: -4px;
+  }
+  
+  .moviescard__image {
+    width: 270px;
+    height: 151px;
+  }
 }
