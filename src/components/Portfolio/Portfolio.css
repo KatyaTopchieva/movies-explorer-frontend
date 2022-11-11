@@ -57,6 +57,11 @@
   cursor: pointer;
 }
 
+.portfolio__link-arrow:hover {
+  width: 16px;
+  height: 16px;
+}
+
 @media (min-width: 768px) {  
   .portfolio__title {
     font-size: 18px;

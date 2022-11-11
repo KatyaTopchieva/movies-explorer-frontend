@@ -73,6 +73,10 @@
   color: #000;
 }
 
+.aboutMe__profile:hover {
+  color: #2BE080;
+}
+
 .aboutMe__portfolio {
   display: flex;
   flex-direction: column;

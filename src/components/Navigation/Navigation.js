@@ -18,8 +18,8 @@ function Navigation(props) {
 		<>
 			{!props.logedIn ? (
 				<nav className="navigation">
-          <Link to="/signup" className="navigation__link navigation__link_unlogged">Регистрация</Link>
-          <Link to="/signin" className="navigation__link navigation__link_unlogged">Войти</Link>
+          <Link to="/signup" className="navigation__link navigation__link_signup">Регистрация</Link>
+          <Link to="/signin" className="navigation__link navigation__link_signin">Войти</Link>
         </nav>
 			) : (
 				<>
