@@ -1,44 +1,33 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Navigation.css'
-import { useState } from 'react';
 
-function Navigation(props) {
-	const [isClicked, setIsClicked] = useState(false);
-
-	function handleMenuOpen() {
-		setIsClicked(true)
-	};
+function Navigation({ isOpen }) {
+	// const navigationClassName = `navigation ${isOpen && 'navigation_opened'}`
 	
-	function handleMenuClose() {
-		setIsClicked(false)
-	};
-
 	return (
-		<>
-			{!props.logedIn ? (
-				<nav className="navigation">
+		// <nav className={navigationClassName}>
+		// <nav className='navigation navigation_opened'>
+		<nav className='navigation'>
+			<div className='navigation__container'>
+				<button className='navigation__close' type='button'></button>
+				<div className='navigation__wrapper'>
+					<Link to='/' className='navigation__link navigation__link_main'>Главная</Link>
+					<Link to='/movies' className='navigation__link navigation__link_movies'>Фильмы</Link>
+					<Link to='/saved-movies' className='navigation__link navigation__link_saved-movies'>Сохраненные фильмы</Link>
+				</div>
+				<Link to='/profile' className='navigation__profile-link'>Аккаунт</Link>
+			</div>
+			{/* {loggedIn ? (
+				<nav className="">
           <Link to="/signup" className="navigation__link navigation__link_signup">Регистрация</Link>
           <Link to="/signin" className="navigation__link navigation__link_signin">Войти</Link>
         </nav>
 			) : (
-				<>
-				<div className={`${isClicked ? "overlay" : ""}`}>
-					<nav className={`navigation navigation__popup ${isClicked ? "navigation__popup_open" : ""}`}>
-						<button className="navigation__popup-button navigation__popup-button_close" type="button" onClick={handleMenuClose}></button>
-						<Link to="/" className="navigation__link navigation__link_loggedin" onClick={handleMenuClose}>Главная</Link>
-						<NavLink to="/movies" className="navigation__link navigation__link_loggedin" activeClassName="navigation__link_active" onClick={handleMenuClose}>Фильмы</NavLink>
-						<NavLink to="/saved-movies" className="navigation__link navigation__link_loggedin" activeClassName="navigation__link_active" onClick={handleMenuClose}>Сохранённые фильмы</NavLink>
-						<Link to="/profile" className="navigation__account-button" onClick={handleMenuClose}>
-							<div className="navigation__account"></div>
-							Аккаунт
-						</Link>
-					</nav>
-				</div>
-				<button className="navigation__popup-button navigation__popup-button_burger" type="button" onClick={handleMenuOpen}></button>
-			</>
-			)}
-		</>
+				
+
+			)} */}
+		</nav>
 	)
 }
 
