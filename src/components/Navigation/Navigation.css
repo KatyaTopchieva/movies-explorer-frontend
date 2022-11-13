@@ -1,5 +1,8 @@
 .navigation {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
 }
 
 .navigation__button-burger {

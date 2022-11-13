@@ -1,12 +1,12 @@
 import './Register.css'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Register(){
 
   return (
     <section className="register">
-			<Link to="/" className="login__logo"></Link>
+			<NavLink to="/" className="login__logo"></NavLink>
 			<h2 className="register__title">Добро пожаловать!</h2>
 			<form className="register__form">
 				<div className="register__field">
@@ -27,7 +27,7 @@ function Register(){
 				<span className="register__input-error"></span>
 				<button className="register__button" type="submit">Зарегистрироваться</button>
 				<p className="register__login-sign">Уже зарегистрированы?&nbsp;
-					<Link to="/signin" className="register__signin">Войти</Link>
+					<NavLink to="/signin" className="register__signin">Войти</NavLink>
 				</p>
 			</form>
   	</section>

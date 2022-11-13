@@ -1,12 +1,12 @@
 import './Login.css'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Login(){
 
   return (
     <section className="login">
-			<Link to="/" className="login__logo"></Link>
+			<NavLink to="/" className="login__logo"></NavLink>
 			<h2 className="login__title">Рады видеть!</h2>
 			<form className="login__form">
 				<div className="login__field">
@@ -22,7 +22,7 @@ function Login(){
 				<span className="login__input-error"></span>
 				<button className="login__button" type="submit">Войти</button>
 				<p className="login__login-sign">Еще не зарегистрированы?&nbsp;
-					<Link to="/signup" className="login__signup">Регистрация</Link>
+					<NavLink to="/signup" className="login__signup">Регистрация</NavLink>
 				</p>
 			</form>
   	</section>

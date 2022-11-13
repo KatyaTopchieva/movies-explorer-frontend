@@ -9,6 +9,17 @@
 	padding: 0 14px;
 }
 
+.header_white {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #FFF;
+	min-height: 74px;
+	max-width: 1280px;
+	padding: 0 14px;
+}
+
 @media (min-width: 768px) {
 	.header {
 		background-color: #073042;

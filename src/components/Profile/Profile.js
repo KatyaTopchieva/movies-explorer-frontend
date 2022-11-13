@@ -1,6 +1,7 @@
 import React from "react"
 import "./Profile.css"
 import Header from '../Header/Header'
+import { NavLink } from "react-router-dom"
 
 function Profile() {
   return (
@@ -23,7 +24,9 @@ function Profile() {
           </div>
           <span className="profile__input-error"></span>
           <button className="profile__button profile__button_redact" type="button">Редактировать</button>
-          <button className="profile__button profile__button_logout" type="button">Выйти из аккаунта</button>
+          <NavLink className="profile__link-logout" to={'/'}>
+           <button className="profile__button profile__button_logout" type="button">Выйти из аккаунта</button>
+          </NavLink>
         </form>
       </div>
     </section>
