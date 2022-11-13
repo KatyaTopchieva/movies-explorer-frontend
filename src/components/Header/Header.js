@@ -1,23 +1,18 @@
 import './Header.css'
-import { Route } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Logo from '../Logo/Logo'
-import Navigation from '../Navigation/Navigation'
+import NavAuth from '../NavAuth/NavAuth';
+import Navigation from '../Navigation/Navigation';
 
 function Header() {
-	const endpoints = [
-		"/",
-		"/profile",
-		"/movies",
-		"/saved-movies",
-	]
-		
+	const isLogin = true;
+  const path = '/';
+
   return (
-    <Route exact path={endpoints}>
-      <header className='header'>
-        <Logo />
-        <Navigation />
-      </header>
-    </Route>
+    <header className={`header ${(path === '/profile' && 'header_white')}`}>
+      <Logo />
+      {path === '/' ? <Navigation /> : <NavAuth />}
+    </header>
   )
 }
 

@@ -5,7 +5,9 @@ import Header from '../Header/Header'
 function Profile() {
   return (
     <section className="profile">
-      <Header />
+      <Header 
+        loggedIn={true}
+      />
       <div className="profile__container">
         <h2 className="profile__title">Привет, Виталий!</h2>
         <form className="profile__form">
