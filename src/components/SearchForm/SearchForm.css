@@ -24,6 +24,7 @@
   background: #F9F9F9;
   border-radius: 9px;
   border: none;
+  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -98,6 +99,7 @@
 }
 
 .searchform__slider-text {
+  font-style: normal;
   font-weight: 400;
   font-size: 11px;
   line-height: 18px;

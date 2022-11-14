@@ -1,10 +1,11 @@
 .about-project {
 	width: 100%;
 	height: max-content;
-	font-weight: 400;
 }
 
 .about-project__title {
+	font-style: normal;
+  font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
 	letter-spacing: -0.04em;
@@ -20,6 +21,8 @@
 }
 
 .about-project__subtitle {
+	font-style: normal;
+  font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
 	letter-spacing: -0.04em;
@@ -28,6 +31,8 @@
 }
 
 .about-project__description {
+	font-style: normal;
+  font-weight: 400;
 	font-size: 11px;
 	line-height: 16px;
 	color: #000;
@@ -46,6 +51,8 @@
 
 .about-project__duration-line {
 	width: 100%;
+	font-style: normal;
+  font-weight: 400;
 	font-size: 11px;
 	line-height: 13px;
 	text-align: center;
@@ -74,6 +81,8 @@
 }
 
 .about-project__duration-text {
+	font-style: normal;
+  font-weight: 400;
 	font-size: 11px;
 	line-height: 13px;
 	text-align: center;

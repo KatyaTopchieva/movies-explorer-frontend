@@ -9,6 +9,8 @@
 }
 
 .portfolio__title {
+  font-style: normal;
+  font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   color: #A0A0A0;
@@ -34,6 +36,8 @@
 }
 
 .portfolio__item-title {
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.04em;

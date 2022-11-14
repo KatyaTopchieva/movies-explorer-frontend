@@ -1,11 +1,12 @@
 .techs {
   width: 100%;
   height: max-content;
-  font-weight: 400;
   color: #000;
 }
 
 .techs__title {
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   letter-spacing: -0.04em;
@@ -15,6 +16,8 @@
 }
 
 .techs__subtitle {
+  font-style: normal;
+  font-weight: 400;
   font-size: 30px;
   line-height: 36px;
   text-align: center;
@@ -23,6 +26,8 @@
 }
 
 .techs__info {
+  font-style: normal;
+  font-weight: 400;
   font-size: 11px;
   line-height: 16px;
   text-align: center;
@@ -48,6 +53,8 @@
   justify-content: center;
   background: #E8E8E8;
   border-radius: 10px;
+  font-style: normal;
+  font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   text-align: center;

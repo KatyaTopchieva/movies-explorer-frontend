@@ -8,18 +8,24 @@
 }
 
 .pagenotfaund__code {
+  font-style: normal;
+  font-weight: 400;
   font-size: 80px;
   line-height: 97px;
   margin: 329px auto 0;
 }
 
 .pagenotfaund__text {
+  font-style: normal;
+  font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   margin: 10px auto 0;
 }
 
 .pagenotfaund__link {
+  font-style: normal;
+  font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   margin: 284px auto 0;

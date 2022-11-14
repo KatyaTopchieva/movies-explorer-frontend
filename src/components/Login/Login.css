@@ -15,6 +15,7 @@
   }
 
   .login__title {
+    font-style: normal;
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
@@ -34,6 +35,7 @@
   }
   
   .login__label {
+    font-style: normal;
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
@@ -43,6 +45,7 @@
   
   .login__input {
     font-weight: 500;
+    font-style: normal;
     font-size: 14px;
     line-height: 17px;
     overflow: hidden;
@@ -60,6 +63,7 @@
   }
   
   .login__input-error {
+    font-style: normal;
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
@@ -68,6 +72,8 @@
   }
 
   .login__button {
+    font-style: normal;
+    font-weight: 400;
     font-size: 12px;
     line-height: 14.5px;
     font-weight: 500;
@@ -87,6 +93,8 @@
   }
 
   .login__login-sign {
+    font-style: normal;
+    font-weight: 400;
     font-size: 12px;
     line-height: 14.5px;
     text-align: center;

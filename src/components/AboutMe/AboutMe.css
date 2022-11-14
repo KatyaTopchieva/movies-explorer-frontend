@@ -10,6 +10,8 @@
 }
 
 .aboutMe__title {
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   letter-spacing: -0.04em;
@@ -28,6 +30,8 @@
 }
 
 .aboutMe__name {
+  font-style: normal;
+  font-weight: 400;
   font-size: 30px;
   line-height: 36px;
   letter-spacing: -0.04em;
@@ -36,12 +40,15 @@
 
 .aboutMe__profession-age {
   font-weight: 500;
+  font-style: normal;
   font-size: 11px;
   line-height: 16px;
   margin: 20px 14px 0;
 }
 
 .aboutMe__info-text {
+  font-style: normal;
+  font-weight: 400;
   font-size: 11px;
   line-height: 16px;
   margin: 20px 14px 0;
@@ -66,6 +73,7 @@
 }
 
 .aboutMe__profile {
+  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
@@ -86,6 +94,8 @@
 }
 
 .aboutMe__portfolio-title {
+  font-style: normal;
+  font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   color: #A0A0A0;
@@ -111,6 +121,8 @@
 }
 
 .aboutMe__item-title {
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.04em;
