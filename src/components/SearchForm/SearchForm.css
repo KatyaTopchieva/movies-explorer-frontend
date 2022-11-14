@@ -30,6 +30,11 @@
   line-height: 20px;
   color: #000;
   padding: 0 19px 1px;
+  box-sizing: border-box;
+}
+
+.searchform__input:hover {
+  background: #e5fdf0;
 }
 
 .searchform__button {
@@ -146,37 +151,6 @@
   .searchform__slider-text {
     font-size: 12px;
   }
-
-  /* .searchform__checkbox:after {
-    background-color: #FFF;
-    border-radius: 16px;
-    content: "";
-    height: 20px;
-    position: absolute;
-    width: 36px;
-    box-shadow: 0px 4px 4px rgba(50, 50, 71, 0.08), 0px 4px 8px rgba(50, 50, 71, 0.06);
-  }
-  
-  .searchform__checkbox:checked::after {
-    background-color: #FFF;
-  }
-  
-  .searchform__slider {
-    background-color: #F5F5F5;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgb(0 0 0 / 8%);
-    position: absolute;
-    transition: all .3s ease;
-    width: 16px;
-    height: 16px;
-    left: 2px;
-    z-index: 1;
-  }
-
-  .searchform__slider:checked::after {
-    background-color: #2BE080;
-  } */
-
 }
 
 @media (min-width: 1023px) {
