@@ -79,12 +79,14 @@
 		text-decoration: none;
 	}
 
-	.navtab__button:active {
+	.navtab__button:hover {
 		background: #FFF;
+		transition: 0.2s;
 	}
 
-	.navtab__button-link:active {
+	.navtab__button-link:hover {
 		color: #073042;
+		transition: 0.2s;
 	}
 }
 

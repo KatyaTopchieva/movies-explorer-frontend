@@ -4,11 +4,10 @@ import NavAuth from '../NavAuth/NavAuth';
 import Navigation from '../Navigation/Navigation';
 
 function Header() {
-	const isLogin = false;
   const path = '/';
 
   return (
-    <header className={`${(!isLogin ? 'header'  : 'header_white')}`}>
+    <header className={`header ${(path === "/movies" && 'header_white') || (path === "/saved-movies" && 'header_white') || (path === "/profile" && 'header_white')}`}>
       <Logo />
       {path === '/' ? <Navigation /> : <NavAuth />}
     </header>
