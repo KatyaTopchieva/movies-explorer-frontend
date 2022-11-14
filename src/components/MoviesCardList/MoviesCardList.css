@@ -9,10 +9,10 @@
 .moviescardlist__list {
   display: grid;
   grid-template-rows:  238.3px;
-  row-gap: 16.2px;
+  row-gap: 26.2px;
   justify-items: center;
   padding: 0;
-  margin: 40.4px auto 11px;
+  margin: 40.4px auto 36px;
   max-height: 1327px;
   overflow: hidden;
 }
@@ -50,6 +50,7 @@
   padding: 0;
   cursor: pointer;
   margin: 50px auto 61px;
+  border-radius: 6px;
 }
 
 .moviescardlist__button:active {
