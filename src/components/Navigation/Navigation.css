@@ -18,9 +18,7 @@
 }
 
 .navigation__button-burger:hover {
-	box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-	width: 42px;
-	height: 45px;
+	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
 	transition: 0.2s;
 }
 
@@ -134,7 +132,7 @@
 	}
 	
 	.navigation__button-burger:hover {
-		box-shadow: 0px 5px 5px 0px rgba(255, 255, 255, 0.5);
+		background-color: #2BE080;
 	}
 	
 	.navigation__container {

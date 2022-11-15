@@ -4,7 +4,7 @@ import NavAuth from '../NavAuth/NavAuth';
 import Navigation from '../Navigation/Navigation';
 
 function Header() {
-  const path = '/';
+  const path = '/movies';
   const isLogged = true;
 
   return (
