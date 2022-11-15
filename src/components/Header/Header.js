@@ -5,11 +5,12 @@ import Navigation from '../Navigation/Navigation';
 
 function Header() {
   const path = '/';
+  const isLogged = true;
 
   return (
     <header className={`header ${(path === "/movies" && 'header_white') || (path === "/saved-movies" && 'header_white') || (path === "/profile" && 'header_white')}`}>
       <Logo />
-      {path === '/' ? <Navigation /> : <NavAuth />}
+      {isLogged ? <Navigation /> : <NavAuth />}
     </header>
   )
 }
