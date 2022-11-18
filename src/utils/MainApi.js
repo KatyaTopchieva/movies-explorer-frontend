@@ -8,6 +8,67 @@ class MainApi {
     return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`)
   }
 
+  register(name, email, password) {
+    return fetch(`${this._baseUrl}/signup`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+            "name": name,
+            "email": email,
+            "password": password, 
+          })
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => console.log(err));
+  };
+
+  authorize(name, email, password) {
+    return fetch(`${this._baseUrl}/signin`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "name": name,
+        "email": email,
+        "password": password,
+       
+       })
+    })
+    .then((response => response.json()))
+    .then((data) => {
+      if (data.token){
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', email);
+        return data;
+      } 
+    })
+    .catch(err => console.log(err))
+  };
+
+  checkToken(token) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json",
+        "Authorization" : `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => data)
+  }
+
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
@@ -68,3 +129,5 @@ export const mainApi = new MainApi({
     "Authorization" : `Bearer ${localStorage.getItem('token')}`
   }
 });
+
+export default mainApi;

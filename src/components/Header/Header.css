@@ -14,10 +14,6 @@
 		background-color: #073042;
 		padding: 0 30px;
 	}
-
-	.header_white {
-		background-color: #FFF;
-	}
 }
 
 @media (min-width: 1023px) {

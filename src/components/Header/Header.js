@@ -3,14 +3,11 @@ import Logo from '../Logo/Logo'
 import NavAuth from '../NavAuth/NavAuth';
 import Navigation from '../Navigation/Navigation';
 
-function Header() {
-  const path = '/movies';
-  const isLogged = true;
-
+function Header({isLoading, isLogged}) {
   return (
-    <header className={`header ${(path === "/movies" && 'header_white') || (path === "/saved-movies" && 'header_white') || (path === "/profile" && 'header_white')}`}>
+    <header className='header'>
       <Logo />
-      {isLogged ? <Navigation /> : <NavAuth />}
+      {isLoading ? '' : isLogged ? <Navigation /> : <NavAuth />}
     </header>
   )
 }
