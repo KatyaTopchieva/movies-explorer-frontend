@@ -1,28 +1,30 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import Logo from '../Logo/Logo'
 import './Navigation.css'
 
 function Navigation() {
+  const [showItems, setShowItems] = useState(false);
+  const handleToggleMenu = () => setShowItems(!showItems);
 
 	return (
 		<section className='navigation'>
-		<button className='navigation__button-burger'></button>
-			{/* <nav className='navigation__menu navigation__menu_opened'> */}
-			<nav className='navigation__menu'>
+		<button className='navigation__button-burger' onClick={handleToggleMenu}></button>
+			<nav className={`${showItems ? 'navigation__menu_opened' : 'navigation__menu'}`}>
 				<div className='navigation__container'>
-					<button className='navigation__close' type='button'></button>
+					<button className='navigation__close' type='button' onClick={handleToggleMenu}></button>
 					<div className='navigation__logo'>
 						<Logo />
 					</div>
 					<div className='navigation__wrapper'>
-						<NavLink to='/' className='navigation__link navigation__link_main'>Главная</NavLink>
-						<NavLink to='/movies' className='navigation__link navigation__link_movies'>Фильмы</NavLink>
-						<NavLink to='/saved-movies' className='navigation__link navigation__link_saved-movies'>Сохраненные фильмы</NavLink>
+						<Link to='/' className='navigation__link navigation__link_main' onClick={handleToggleMenu}>Главная</Link>
+						<NavLink to='/movies' className='navigation__link navigation__link_movies' onClick={handleToggleMenu}>Фильмы</NavLink>
+						<NavLink to='/saved-movies' className='navigation__link navigation__link_saved-movies' onClick={handleToggleMenu}>Сохраненные фильмы</NavLink>
 					</div>
-					<NavLink to='/profile' className='navigation__profile-link'>
+					<Link to='/profile' className='navigation__profile-link' onClick={handleToggleMenu}>
 						<button className='navigation__profile-link-button' type='button'></button>
-					</NavLink>
+					</Link>
 				</div>
 			</nav>
 		</section>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import isEmail from 'validator/lib/isEmail'
 import { emailErrorMessage } from '../../utils/constants'
 
-function Login(handleLogin){
+function Login({ handleLogin}){
 	const [values, setValues] = useState()
   const [errors, setErrors] = useState()
   const [isValid , setIsValid] = useState(false)
@@ -48,6 +48,7 @@ function Login(handleLogin){
 							className="login__input"
 							name="email"
 							placeholder="Email"
+							autocomplete="off"
 							required />
 					{errors?.email && <span className="login__input-error">{errors.email}</span>}
 				</div>
@@ -60,7 +61,8 @@ function Login(handleLogin){
 							className="login__input" 
 							name="password"
 							placeholder="Пароль"
-							minLength="6" maxLength="40" 
+							minLength="6" maxLength="40"
+							autocomplete="off"
 							required />
 					{errors?.password && <span className="login__input-error">{errors.password}</span>}
 				</div>

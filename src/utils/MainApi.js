@@ -30,7 +30,7 @@ class MainApi {
     .catch((err) => console.log(err));
   };
 
-  authorize(name, email, password) {
+  login(email, password) {
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: {
@@ -38,17 +38,14 @@ class MainApi {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "name": name,
         "email": email,
-        "password": password,
-       
+        "password": password
        })
     })
     .then((response => response.json()))
     .then((data) => {
       if (data.token){
         localStorage.setItem('token', data.token);
-        localStorage.setItem('name', name);
         localStorage.setItem('email', email);
         return data;
       } 
@@ -123,7 +120,7 @@ class MainApi {
 }
 
 export const mainApi = new MainApi({
-  baseUrl: 'localhost:3000',
+  baseUrl: 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json',
     "Authorization" : `Bearer ${localStorage.getItem('token')}`

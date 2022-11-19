@@ -47,7 +47,8 @@ function Register({ handleRegister }) {
 							className="register__input"
 							name="name"
 							placeholder="Имя"
-							minLength="2" maxLength="30" 
+							minLength="2" maxLength="30"
+							autocomplete="off"
 							required />
 					 {errors?.name && <span className="register__input-error">{errors.name}</span>}
 				</div>
@@ -60,6 +61,7 @@ function Register({ handleRegister }) {
 							className="register__input"
 							name="email"
 							placeholder="Email"
+							autocomplete="off"
 							required />
 					{errors?.email && <span className="register__input-error">{errors.email}</span>}
 				</div>
@@ -72,7 +74,8 @@ function Register({ handleRegister }) {
 							className="register__input" 
 							name="password"
 							placeholder="Пароль"
-							minLength="6" maxLength="40" 
+							minLength="6" maxLength="40"
+							autocomplete="off"
 							required />
 					{errors?.password && <span className="register__input-error">{errors.password}</span>}
 				</div>

@@ -3,11 +3,11 @@ import Logo from '../Logo/Logo'
 import NavAuth from '../NavAuth/NavAuth';
 import Navigation from '../Navigation/Navigation';
 
-function Header({isLoading, isLogged}) {
+function Header({loggedIn}) {
   return (
     <header className='header'>
       <Logo />
-      {isLoading ? '' : isLogged ? <Navigation /> : <NavAuth />}
+      {loggedIn ? <Navigation /> : <NavAuth />}
     </header>
   )
 }
