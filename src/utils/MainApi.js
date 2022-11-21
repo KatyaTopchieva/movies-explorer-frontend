@@ -131,7 +131,7 @@ class MainApi {
 }
 
 export const mainApi = new MainApi({
-  baseUrl: 'http://localhost:3001',
+  baseUrl: 'https://api.etopchievadp.students.nomoredomains.icu',
   headers: {
     'Content-Type': 'application/json',
     "Authorization" : `Bearer ${localStorage.getItem('token')}`
