@@ -5,6 +5,7 @@
   height: 238.3px;
   background: #FDFDFD;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .moviescard__info {
@@ -41,36 +42,32 @@
   right: 0;
 }
 
+.moviescard__button-save {
+  background-color: transparent;
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 36px;
+  border: none;
+  cursor: pointer;
+}
+
 .moviescard__button-save_active {
   background-image: url('../../images/saved_flag.svg');
-  background-color: transparent;
-  object-fit: cover;
-  width: 30px;
-  height: 30px;
-  border-radius: 36px;
-  border: none;
-  cursor: pointer;
 }
 
-.moviescard__button-save {
+.moviescard__button-save_inactive {
   background-image: url('../../images/save_flag.svg');
-  background-color: transparent;
-  object-fit: cover;
-  width: 30px;
-  height: 30px;
-  border-radius: 36px;
-  border: none;
-  cursor: pointer;
 }
 
-.moviescard__button-save:active {
-  background-image: url('../../images/saved_flag.svg');
-  transition: 0.6s;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+.moviescard__button-save_inactive:hover {
+  transition: 0.2s;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5); 
 }
 
 .moviescard__button-delete {
   background-image: url('../../images/delete.svg');
+  background-position: center;
   background-color: transparent;
   object-fit: cover;
   width: 30px;
@@ -78,13 +75,12 @@
   border-radius: 36px;
   border: none;
   cursor: pointer;
-  display: none;
+  display: block;
 }
 
-.moviescard__button-delete:active {
-  background-color: #A0A0A0;
-  transition: 0.6s;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+.moviescard__button-delete:hover {
+  transition: 0.2s;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3); 
 }
 
 .moviescard__link {
@@ -127,22 +123,25 @@
     top: 0;
   }
   
+  .moviescard__button-save_inactive {
+    background-image: url('../../images/save_heart.svg');
+    width: 24px;
+    height: 24px;
+  }
+  
   .moviescard__button-save_active {
     background-image: url('../../images/saved_heart.svg');
     width: 24px;
     height: 24px;
   }
-  
-  .moviescard__button-save {
-    background-image: url('../../images/save_heart.svg');
-    width: 24px;
-    height: 24px;
+
+  .moviescard__button-save_inactive:hover {
+    transition: 0.2s;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
   }
 
-  .moviescard__button-save:active {
+  .moviescard__button-save_inactive:after {
     background-image: url('../../images/saved_heart.svg');
-    transition: 0.6s;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
   }
   
   .moviescard__button-delete {
@@ -150,7 +149,6 @@
     width: 24px;
     height: 24px;
     padding: 0;
-    display: none;
   }
   
   .moviescard__link {

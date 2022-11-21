@@ -48,7 +48,7 @@ function Login({ handleLogin}){
 							className="login__input"
 							name="email"
 							placeholder="Email"
-							autocomplete="off"
+							autoComplete="off"
 							required />
 					{errors?.email && <span className="login__input-error">{errors.email}</span>}
 				</div>
@@ -62,7 +62,7 @@ function Login({ handleLogin}){
 							name="password"
 							placeholder="Пароль"
 							minLength="6" maxLength="40"
-							autocomplete="off"
+							autoComplete="off"
 							required />
 					{errors?.password && <span className="login__input-error">{errors.password}</span>}
 				</div>

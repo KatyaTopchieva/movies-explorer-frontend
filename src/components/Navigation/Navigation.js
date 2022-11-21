@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import Logo from '../Logo/Logo'
 import './Navigation.css'
 
-function Navigation() {
+function Navigation({ path }) {
   const [showItems, setShowItems] = useState(false);
   const handleToggleMenu = () => setShowItems(!showItems);
 

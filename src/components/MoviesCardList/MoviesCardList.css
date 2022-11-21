@@ -32,9 +32,11 @@
   line-height: 15px;
 }
 
-.moviescardlist__text {
+.moviescardlist__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 60px auto 61px;
-  display: none;
 }
 
 .moviescardlist__button {
@@ -53,8 +55,14 @@
   border-radius: 6px;
 }
 
-.moviescardlist__button:active {
+.moviescardlist__button:hover {
   background-color: #E8E8E8;
+  border: 0.5px solid #000;
+}
+
+.moviescardlist__button:active {
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
 }
 
 @media (min-width: 768px) {

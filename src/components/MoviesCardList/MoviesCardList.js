@@ -3,32 +3,38 @@ import './MoviesCardList.css'
 import MoviesCard from "../MoviesCard/MoviesCard"
 
 
-function MoviesCardList() {
+function MoviesCardList(props) {
+
+  if (props.cards.length === 0) return <span className="moviescardlist__error">Ничего не найдено</span>
+  if (props.serverError) return <span className="moviescardlist__error">Ошибка запроса. Попробуйте ещё раз</span>
+
+  const foundMovies = JSON.parse(localStorage.getItem('foundMovies'))
+
   return (
+    <>
     <div className="moviescardlist">
       <ul className="moviescardlist__list">
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
+      {
+          props.cards.map(card => {
+            return (
+              <MoviesCard
+                card={card}
+                key={props.isOnlySaved ? card.movieId : card.id}
+                isSaved={props.isSaved}
+                onCardSave={props.onCardSave}
+                isOnlySaved={props.isOnlySaved}
+                onCardDelete={props.onCardDelete}
+              />
+            )
+          })
+        }
       </ul>
+      {props.isOnlySaved ? '' : (props.cards.length < foundMovies.length ?
       <div className="moviescardlist__answer-box">
-        <p className="moviescardlist__text">Ничего не найдено</p>
-        <button className="moviescardlist__button" type="button">Еще</button>
-      </div>
+        <button className="moviescardlist__button" onClick={props.handleShowMore} type="button">Еще</button>
+      </div> : '')}
     </div>
+    </>
   )
 }
 

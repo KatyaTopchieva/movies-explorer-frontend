@@ -98,7 +98,18 @@ class MainApi {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        image: (`https://api.nomoreparties.co/${data.image.url}`),
+        year: data.year,        
+        duration: data.duration,
+        director: data.director,
+        description: data.description,
+        country: data.country || 'Данных нет',
+        trailerLink: data.trailerLink || 'https://www.youtube.com',
+        thumbnail: (`https://api.nomoreparties.co/${data.image.formats.thumbnail.url}`),
+        movieId: data.id,
+        nameRU: data.nameRU || 'Данных нет',
+        nameEN: data.nameEN || 'Данных нет'})
     })
     .then(res => this._checkResponse(res))
   }
