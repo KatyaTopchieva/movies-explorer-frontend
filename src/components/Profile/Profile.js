@@ -48,7 +48,7 @@ function Profile(props) {
   return (
     <section className="profile">
       <Header 
-        loggedIn={true}
+        loggedIn={props.loggedIn}
       />
       <div className="profile__container">
         <h2 className="profile__title">{`Привет, ${currentUser.name}!`}</h2>

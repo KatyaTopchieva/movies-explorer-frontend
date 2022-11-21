@@ -8,12 +8,11 @@
 
 .moviescardlist__list {
   display: grid;
-  grid-template-rows:  238.3px;
+  grid-template-rows: repeat(238.3px);
   row-gap: 26.2px;
   justify-items: center;
   padding: 0;
   margin: 40.4px auto 36px;
-  max-height: 1327px;
   overflow: hidden;
 }
 
@@ -71,7 +70,6 @@
     grid-template-rows: repeat(4, 269px);
     gap: 30px;
     margin: 60px auto 20px;
-    max-height: 1136px;
   }
 
   .moviescardlist__button {
@@ -86,6 +84,5 @@
     column-gap: 20px;
     row-gap: 38px;
     margin: 70px auto 0;
-    max-height: 1114px;
   }
 }

@@ -36,7 +36,7 @@ function SavedMovies(props) {
   return (
     <section className="saved-movies">
       <Header
-        loggedIn={true}
+        loggedIn={props.loggedIn}
       />
       <SearchForm
        handleSearch={handleSearch}

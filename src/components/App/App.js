@@ -163,7 +163,7 @@ useEffect(() => {
 function handleCardSave(movie) {
   mainApi.addMovies(movie)
     .then((movieData) => {
-      setSavedMovies([...savedMovies, movieData])
+      setSavedMovies([...savedMovies, movieData.data])
     })
     .catch((err) => {
       console.log(err.message)
@@ -192,7 +192,9 @@ function isSaved(card) {
       <div className='app'>
         <Switch>
           <Route exact path="/">
-            <Main />
+            <Main 
+            loggedIn={loggedIn}
+            />
           </Route>
           <Route path="/signup">
             <Register handleRegister={handleRegister} errorMessage={errorMessage} />
@@ -227,6 +229,7 @@ function isSaved(card) {
           <ProtectedRoute
             path="/profile"
             component={Profile}
+            loggedIn={loggedIn}
             patchUserInfo={patchUserInfo}
             isSuccess={isSuccess}
           />

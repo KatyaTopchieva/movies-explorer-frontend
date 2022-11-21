@@ -19,7 +19,8 @@ function MoviesCard(props) {
   }
 
   function handleCardSave() {
-    props.onCardSave(props.card)
+    if(!props.isSaved(props.card))
+      props.onCardSave(props.card)
   }
 
   function handleCardDelete() {
