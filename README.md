@@ -7,3 +7,6 @@ Movies Explorer - сервис, в котором можно найти филь
 
 ## Ссылка на макет  
 https://yadi.sk/d/XEWuJD5pw4GYCA
+
+## Ссылка на пул реквест  
+https://github.com/KatyaTopchieva/movies-explorer-frontend/pull/3
