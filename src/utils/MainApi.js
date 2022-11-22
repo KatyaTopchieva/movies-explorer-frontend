@@ -69,7 +69,7 @@ class MainApi {
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
-      headers: this._headers,
+      headers: this.getHeader(),
   })
    .then(res => this._checkResponse(res))
   }
@@ -89,7 +89,7 @@ class MainApi {
   getMovies() {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'GET',
-      headers: this._headers,
+      headers: this.getHeader(),
     })
     .then(res => this._checkResponse(res))
   }
@@ -97,7 +97,7 @@ class MainApi {
   addMovies(data) {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
-      headers: this._headers,
+      headers: this.getHeader(), // this._headers,
       body: JSON.stringify({
         image: (`https://api.nomoreparties.co/${data.image.url}`),
         year: data.year,        
@@ -117,7 +117,7 @@ class MainApi {
   deleteMovies(movieId) {
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: this.getHeader(),
     })
     .then(res => this._checkResponse(res))
   }
@@ -126,6 +126,13 @@ class MainApi {
     this._headers = {
       'Content-Type': 'application/json',
       'Autorization': `Bearer ${localStorage.getItem('token')}`
+    };
+  }
+
+  getHeader(){
+    return {
+      'Content-Type': 'application/json',
+      "Authorization" : `Bearer ${localStorage.getItem('token')}`
     };
   }
 }

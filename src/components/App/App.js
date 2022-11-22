@@ -35,8 +35,10 @@ function App() {
   function getUserInfo() {
     mainApi.getUserInfo()
     .then((data) => {
-      setLoggedIn(true);
-      setCurrentUser(data);
+      setLoggedIn(true)
+      //history.push(path)
+      setCurrentUser(data)
+      getSavedMovies()
     })
     .catch((err) => {
       console.log(err.message)
@@ -46,7 +48,7 @@ function App() {
   function handleRegister(data) {
     mainApi.register(data.name, data.email, data.password)
       .then(() => {
-        handleLogin(data.email, data.password)
+        handleLogin(data);
       })
       .catch(err => {
         setErrorMessage('Что-то пошло не так...')
@@ -57,9 +59,10 @@ function App() {
   function handleLogin(data) {
     mainApi.login(data.email, data.password)
       .then(() => {
-        setLoggedIn(true)
-        getUserInfo()
-        history.push('/movies')
+        mainApi.headersRefresh();
+        setLoggedIn(true);
+        getUserInfo();
+        history.push('/movies');
       })
       .catch(err => {
         setErrorMessage('Что-то пошло не так...')
