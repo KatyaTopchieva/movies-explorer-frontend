@@ -37,6 +37,7 @@ function SavedMovies(props) {
     <section className="saved-movies">
       <Header
         loggedIn={props.loggedIn}
+        path={"/saved-movies"}
       />
       <SearchForm
        handleSearch={handleSearch}

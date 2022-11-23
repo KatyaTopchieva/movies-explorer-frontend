@@ -21,6 +21,7 @@ function MoviesCard(props) {
   function handleCardSave() {
     if(!props.isSaved(props.card))
       props.onCardSave(props.card)
+      else props.onCardDelete(props.card)
   }
 
   function handleCardDelete() {
@@ -36,7 +37,9 @@ function MoviesCard(props) {
           {props.isOnlySaved ? (
           <button className='moviescard__button-delete' onClick={handleCardDelete} type="button"></button>
           ) : (
-          <button className={`moviescard__button-save ${props.isSaved(props.card)  ? `moviescard__button-save_active` : `moviescard__button-save_inactive`} `} onClick={handleCardSave} type="button"></button>
+          <button className={`moviescard__button-save 
+             ${props.isSaved(props.card)  ? `moviescard__button-save_active` : `moviescard__button-save_inactive`} `} 
+             onClick={handleCardSave} type="button"></button>
           )}
         </div>
       </div>

@@ -10,7 +10,7 @@ function Header({loggedIn, path}) {
   return (
     <header className={(path === '/') ? 'header' : 'header_white'}>
       <Logo />
-      {loggedIn ? <Navigation /> : <NavAuth />}
+      {loggedIn ? <Navigation path={path}/> : <NavAuth />}
     </header>
   )
 }

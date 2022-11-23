@@ -29,7 +29,7 @@ function MoviesCardList(props) {
           })
         }
       </ul>
-      {props.isOnlySaved ? '' : (props.cards.length < foundMovies.length ?
+      {props.isOnlySaved ? '' : (props.cards?.length < foundMovies?.length ?
       <div className="moviescardlist__answer-box">
         <button className="moviescardlist__button" onClick={props.handleShowMore} type="button">Еще</button>
       </div> : '')}

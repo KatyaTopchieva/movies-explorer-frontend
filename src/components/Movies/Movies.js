@@ -11,7 +11,7 @@ function Movies(props) {
 
   return (
     <section className='movies'>
-      <Header loggedIn={props.loggedIn} />
+      <Header loggedIn={props.loggedIn} path={"/movies"} />
       <SearchForm        
         handleSearch={props.handleSearch}
         defaultValue={props.defaultSearchValue}

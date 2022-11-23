@@ -77,7 +77,7 @@ class MainApi {
   patchUserInfo(name, email) {
     return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
-        headers: this._headers,
+        headers: this.getHeader(),
         body: JSON.stringify({
             name,
             email

@@ -1,6 +1,6 @@
 import './App.css'
 import React, { useEffect } from 'react'
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { Route, Switch, useHistory, Redirect, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js'
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute"
@@ -24,6 +24,7 @@ function App() {
 
 
   const [movies, setMovies] = useState([])
+  const [allMovies, setAllMovies] = useState([])
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [moreCards, setMoreCards] = useState(0)
   const [savedMovies, setSavedMovies] = useState([])
@@ -31,6 +32,7 @@ function App() {
   const [serverError, setServerError] = useState(false)
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false)
+  const location = useLocation()
 
   function getUserInfo() {
     mainApi.getUserInfo()
@@ -83,24 +85,39 @@ function App() {
     })
   }
 
+  function handleLogOut() {
+      setLoggedIn(false);
+      history.push('/');
+      localStorage.clear();
+  }
+
+function filterMovies(movies, movieName, isShortFilms){
+  const searchedMovies = movies.filter((item) => item.nameRU.toLowerCase().includes(movieName.toLowerCase()))
+  const foundMovies = isShortFilms ? searchedMovies.filter((item) => item.duration <= 40) : searchedMovies
+  localStorage.setItem('foundMovies', JSON.stringify(foundMovies))
+  localStorage.setItem('searchMovieName', movieName)
+  localStorage.setItem('shortFilms', isShortFilms)
+  setLoading(false)
+  handleResize()
+}
 //--Movies
 function searchMovie(movieName, isShortFilms) {
   setLoading(true)
-  moviesApi.getMovies()
-    .then((movies) => {
-      const searchedMovies = movies.filter((item) => item.nameRU.toLowerCase().includes(movieName.toLowerCase()))
-      const foundMovies = isShortFilms ? searchedMovies.filter((item) => item.duration <= 40) : searchedMovies
-      localStorage.setItem('foundMovies', JSON.stringify(foundMovies))
-      localStorage.setItem('searchMovieName', movieName)
-      localStorage.setItem('shortFilms', isShortFilms)
-      setLoading(false)
-      handleResize()
-    })
-    .catch((err) => {
-      console.log(err.message)
-      setLoading(false)
-      setServerError(true)
-    })
+  if(allMovies.length===0){
+    moviesApi.getMovies()
+      .then((movies) => {
+        setAllMovies(movies)
+        filterMovies(movies, movieName, isShortFilms)
+      })
+      .catch((err) => {
+        console.log(err.message)
+        setLoading(false)
+        setServerError(true)
+      })   
+  }else{
+    filterMovies(allMovies, movieName, isShortFilms)
+  }
+
 }
 
 function checkWindowWidth() {
@@ -114,17 +131,37 @@ function handleResize() {
   }
   if (windowWidth >= 1280) {
     setMovies(foundMovies.slice(0, 12))
-    setMoreCards(3)
+    setMoreCards(4)
   } else if (windowWidth > 480 && windowWidth < 1280) {
     setMovies(foundMovies.slice(0, 8))
     setMoreCards(2)
   } else if (windowWidth <= 480) {
     setMovies(foundMovies.slice(0, 5))
-    setMoreCards(2)
+    setMoreCards(1)
   }
 }
 
+function tokenCheck() {
+  const jwt = localStorage.getItem("token");
+  const path = location.pathname
+  if (jwt) {
+    mainApi.checkToken(jwt)
+      .then((user) => {
+        setLoggedIn(true)
+        history.push(path)
+        setCurrentUser(user)
+        getSavedMovies()
+      })
+      .catch(() => {
+        handleLogOut()
+      })
+  } else handleLogOut()
+}
+
 useEffect(() => {
+
+  tokenCheck();
+
   window.addEventListener('resize', checkWindowWidth)
   handleResize()
 }, [windowWidth])
@@ -148,19 +185,20 @@ function getSavedMovies() {
     })
 }
 
-useEffect(() => {    
-  //const path = location.pathname
-  mainApi.getUserInfo()
-  .then((userData) => {
-    setLoggedIn(true)
-    //history.push(path)
-    setCurrentUser(userData)
-    getSavedMovies()
-  })
-  .catch((err) => {
-    console.log(err.message)
-  })
-}, [])
+// useEffect(() => {    
+//   // const path = location.pathname
+//   // mainApi.getUserInfo()
+//   // .then((userData) => {
+//   //   setLoggedIn(true)
+//   //   history.push(path)
+//   //   setCurrentUser(userData)
+//   //   getSavedMovies()
+//   })
+//   .catch((err) => {
+
+//     console.log(err.message)
+//   })
+// }, [])
 
 
 function handleCardSave(movie) {
@@ -200,10 +238,19 @@ function isSaved(card) {
             />
           </Route>
           <Route path="/signup">
-            <Register handleRegister={handleRegister} errorMessage={errorMessage} />
+            {
+              !loggedIn
+              ? <Register handleRegister={handleRegister} errorMessage={errorMessage} />
+              : <Redirect to='/' />
+           }
           </Route>
           <Route path="/signin">
-            <Login handleLogin={handleLogin} errorMessage={errorMessage} />
+            {
+              !loggedIn
+              ?  
+              <Login handleLogin={handleLogin} errorMessage={errorMessage} />
+              : <Redirect to='/' />
+            }
           </Route>
           <ProtectedRoute
             path="/movies"
@@ -235,6 +282,7 @@ function isSaved(card) {
             loggedIn={loggedIn}
             patchUserInfo={patchUserInfo}
             isSuccess={isSuccess}
+            logout={handleLogOut}
           />
           <Route path="*">
               <PageNotFound />
