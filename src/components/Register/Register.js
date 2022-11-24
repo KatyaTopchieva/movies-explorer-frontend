@@ -37,7 +37,7 @@ function Register({ handleRegister }) {
 		<section className="register">
 			<Link to="/" className="register__logo"></Link>
 			<h2 className="register__title">Добро пожаловать!</h2>
-			<form className="register__form" onSubmit={handleSubmit}>
+			<form className="register__form" onSubmit={handleSubmit} noValidate>
 				<div className="register__field">
 					<label className="register__label">Имя</label>
 					<input type="text"
@@ -80,7 +80,7 @@ function Register({ handleRegister }) {
 					{errors?.password && <span className="register__input-error">{errors.password}</span>}
 				</div>
 				<span className="register__input-error"></span>
-				<button	type="submit" className={isValid ? "register__button" : "register__button register__button_disabled"}>Зарегистрироваться</button>
+				<button disabled={!isValid}	type="submit" className={isValid ? "register__button" : "register__button register__button_disabled"}>Зарегистрироваться</button>
 				<p className="register__login-sign">Уже зарегистрированы?&nbsp;
 					<Link to="/signin" className="register__signin">Войти</Link>
 				</p>

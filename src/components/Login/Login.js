@@ -1,11 +1,11 @@
 import './Login.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import isEmail from 'validator/lib/isEmail'
 import { emailErrorMessage } from '../../utils/constants'
 
-function Login({ handleLogin}){
+function Login({ handleLogin, errorMessage}){
 	const [values, setValues] = useState()
   const [errors, setErrors] = useState()
   const [isValid , setIsValid] = useState(false)
@@ -33,12 +33,11 @@ function Login({ handleLogin}){
 		handleLogin(values);
 	}
 
-
   return (
     <section className="login">
 			<Link to="/" className="login__logo"></Link>
 			<h2 className="login__title">Рады видеть!</h2>
-			<form className="login__form" onSubmit={handleSubmit}>
+			<form className="login__form" onSubmit={handleSubmit} noValidate>
 				<div className="login__field">
 					<label className="login__label">E-mail</label>
 					<input type="email"  
@@ -49,6 +48,7 @@ function Login({ handleLogin}){
 							name="email"
 							placeholder="Email"
 							autoComplete="off"
+							noValidate
 							required />
 					{errors?.email && <span className="login__input-error">{errors.email}</span>}
 				</div>
@@ -63,11 +63,12 @@ function Login({ handleLogin}){
 							placeholder="Пароль"
 							minLength="6" maxLength="40"
 							autoComplete="off"
+							noValidate
 							required />
 					{errors?.password && <span className="login__input-error">{errors.password}</span>}
 				</div>
-				<span className="login__input-error"></span>
-				<button className={isValid ? "login__button" : "login__button_disabled"} type="submit">Войти</button>
+				<span className="login__input-error">{errorMessage}</span>
+				<button disabled={!isValid} className={isValid ? "login__button" : "login__button_disabled"} type="submit">Войти</button>
 				<p className="login__login-sign">Еще не зарегистрированы?&nbsp;
 					<Link to="/signup" className="login__signup">Регистрация</Link>
 				</p>

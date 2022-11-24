@@ -24,7 +24,7 @@ function App() {
 
 
   const [movies, setMovies] = useState([])
-  const [allMovies, setAllMovies] = useState([])
+  //const [allMovies, setAllMovies] = useState([])
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [moreCards, setMoreCards] = useState(0)
   const [savedMovies, setSavedMovies] = useState([])
@@ -35,7 +35,7 @@ function App() {
   const location = useLocation()
 
   function getUserInfo() {
-    mainApi.getUserInfo()
+    mainApi.getUserInfo(handleLogOut)
     .then((data) => {
       setLoggedIn(true)
       //history.push(path)
@@ -53,7 +53,7 @@ function App() {
         handleLogin(data);
       })
       .catch(err => {
-        setErrorMessage('Что-то пошло не так...')
+        setErrorMessage(err.message)
         console.log(err.message)
       });
   }
@@ -67,14 +67,14 @@ function App() {
         history.push('/movies');
       })
       .catch(err => {
-        setErrorMessage('Что-то пошло не так...')
+        setErrorMessage(err.message)
         setLoggedIn(false)
         console.log(err.message)
       })
   }
 
   function patchUserInfo(data) {
-    mainApi.patchUserInfo(data.name, data.email)
+    mainApi.patchUserInfo(data.name, data.email, handleLogOut)
     .then(() => {
       setCurrentUser(data);
       setMessage(successMessage);
@@ -103,10 +103,11 @@ function filterMovies(movies, movieName, isShortFilms){
 //--Movies
 function searchMovie(movieName, isShortFilms) {
   setLoading(true)
-  if(allMovies.length===0){
+  const allMovies = JSON.parse((localStorage.getItem('allMovies')))
+  if(!allMovies || allMovies.length===0){
     moviesApi.getMovies()
       .then((movies) => {
-        setAllMovies(movies)
+        localStorage.setItem('allMovies', JSON.stringify(movies))
         filterMovies(movies, movieName, isShortFilms)
       })
       .catch((err) => {
@@ -176,7 +177,7 @@ function handleSearch(movieName, isShortFilms) {
 }
 
 function getSavedMovies() {
-  mainApi.getMovies()
+  mainApi.getMovies(handleLogOut)
     .then((savedMovies) => {
       setSavedMovies(savedMovies.data)
     })
@@ -185,24 +186,8 @@ function getSavedMovies() {
     })
 }
 
-// useEffect(() => {    
-//   // const path = location.pathname
-//   // mainApi.getUserInfo()
-//   // .then((userData) => {
-//   //   setLoggedIn(true)
-//   //   history.push(path)
-//   //   setCurrentUser(userData)
-//   //   getSavedMovies()
-//   })
-//   .catch((err) => {
-
-//     console.log(err.message)
-//   })
-// }, [])
-
-
 function handleCardSave(movie) {
-  mainApi.addMovies(movie)
+  mainApi.addMovies(movie, handleLogOut)
     .then((movieData) => {
       setSavedMovies([...savedMovies, movieData.data])
     })
@@ -214,7 +199,7 @@ function handleCardSave(movie) {
 function handleCardDelete(card) {
   const deleteCard = savedMovies.find(c => c.movieId === (card.id || card.movieId) && c.owner === currentUser._id)
   if (!deleteCard) return
-  mainApi.deleteMovies(deleteCard._id)
+  mainApi.deleteMovies(deleteCard._id, handleLogOut)
     .then(() => {
       setSavedMovies(savedMovies.filter(c => c._id !== deleteCard._id))
     })

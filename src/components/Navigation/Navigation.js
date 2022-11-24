@@ -26,7 +26,7 @@ function Navigation({ path }) {
 	return (
 		<section className='navigation'>
 		<button className='navigation__button-burger' onClick={handleToggleMenu}></button>
-			<nav className={`${showItems ||(windowWidth>1023 && path !=="/") ? 'navigation__menu_opened' : 'navigation__menu'}`}>
+			<nav className={`${showItems ||(windowWidth>1023) ? 'navigation__menu_opened' : 'navigation__menu'}`}>
 				<div className='navigation__container'>
 					<button className='navigation__close' type='button' onClick={handleToggleMenu}></button>
 					<div className='navigation__logo'>

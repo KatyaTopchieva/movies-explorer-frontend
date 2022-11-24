@@ -4,8 +4,13 @@ class MainApi {
     this._baseUrl = baseUrl;
   }
 
-  _checkResponse(res) {
-    return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`)
+  _checkResponse(response, handleLogOut) {
+    if(response.ok)
+      return response.json()   
+    if(response.status === 401) {
+      handleLogOut()
+    }
+    return Promise.reject(`Ошибка ${response.status}`)
   }
 
   register(name, email, password) {
@@ -22,12 +27,13 @@ class MainApi {
           })
     })
     .then((response) => {
-      return response.json();
+      if(response.ok)
+        return response.json()   
+        throw new Error("Что-то пошло не так...")
     })
     .then((res) => {
       return res;
     })
-    .catch((err) => console.log(err));
   };
 
   login(email, password) {
@@ -42,7 +48,13 @@ class MainApi {
         "password": password
        })
     })
-    .then((response => response.json()))
+    .then((response) => {
+      if(response.ok)
+        return response.json()   
+      if(response.status === 401) throw new Error("Неверный логин или пароль")
+      throw new Error("Что-то пошло не так...")
+    }
+    )
     .then((data) => {
       if (data.token){
         localStorage.setItem('token', data.token);
@@ -50,7 +62,6 @@ class MainApi {
         return data;
       } 
     })
-    .catch(err => console.log(err))
   };
 
   checkToken(token) {
@@ -62,19 +73,24 @@ class MainApi {
         "Authorization" : `Bearer ${token}`
       }
     })
-    .then(res => res.json())
+    .then(response => {
+      if(response.ok)
+        return response.json()   
+      if(response.status === 401) throw new Error("Пользователь не авторизован")
+        throw new Error("Что-то пошло не так...")
+    })
     .then(data => data)
   }
 
-  getUserInfo() {
+  getUserInfo(handleLogOut) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: this.getHeader(),
   })
-   .then(res => this._checkResponse(res))
+   .then(res => this._checkResponse(res, handleLogOut))
   }
 
-  patchUserInfo(name, email) {
+  patchUserInfo(name, email, handleLogOut) {
     return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
         headers: this.getHeader(),
@@ -83,18 +99,18 @@ class MainApi {
             email
       })
     })
-    .then(res => this._checkResponse(res))
+    .then(res => this._checkResponse(res, handleLogOut))
   }
 
-  getMovies() {
+  getMovies(handleLogOut) {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'GET',
       headers: this.getHeader(),
     })
-    .then(res => this._checkResponse(res))
+    .then(res => this._checkResponse(res, handleLogOut))
   }
 
-  addMovies(data) {
+  addMovies(data, handleLogOut) {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
       headers: this.getHeader(), // this._headers,
@@ -111,15 +127,15 @@ class MainApi {
         nameRU: data.nameRU || 'Данных нет',
         nameEN: data.nameEN || 'Данных нет'})
     })
-    .then(res => this._checkResponse(res))
+    .then(res => this._checkResponse(res, handleLogOut))
   }
 
-  deleteMovies(movieId) {
+  deleteMovies(movieId, handleLogOut) {
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
       headers: this.getHeader(),
     })
-    .then(res => this._checkResponse(res))
+    .then(res => this._checkResponse(res, handleLogOut))
   }
 
   headersRefresh() {
