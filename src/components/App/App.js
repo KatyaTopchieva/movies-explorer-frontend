@@ -271,7 +271,7 @@ function isSaved(card) {
           />
           <Route path="*">
               <PageNotFound />
-            </Route>
+          </Route>
         </Switch>
     </div>
     </CurrentUserContext.Provider>
