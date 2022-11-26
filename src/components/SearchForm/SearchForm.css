@@ -33,8 +33,17 @@
   box-sizing: border-box;
 }
 
-.searchform__input:hover {
-  background: #e5fdf0;
+.searchform__input-error {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FF4062;
+  flex-grow: 2;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  bottom: -15px;
 }
 
 .searchform__button {
@@ -51,8 +60,7 @@
 }
 
 .searchform__button:hover {
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-	border-radius: 3px;
+  background-image: url('../../images/find_smaall_blue.svg');
 }
 
 .searchform__tumbler {
@@ -144,6 +152,12 @@
     position: unset;
   }
   
+  .searchform__button:hover {
+    background-image: url('../../images/find_big.svg');
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+  }
+
   .searchform__tumbler {
     width: 156px;
     margin-top: 41px;

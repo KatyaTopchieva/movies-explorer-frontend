@@ -7,16 +7,24 @@
 	min-height: 74px;
 	max-width: 1280px;
 	padding: 0 14px;
+	margin-top: -8px;
+}
+
+.header_white {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #FFF;
+	min-height: 74px;
+	max-width: 1280px;
+	padding: 0 14px;
 }
 
 @media (min-width: 768px) {
 	.header {
 		background-color: #073042;
 		padding: 0 30px;
-	}
-
-	.header_white {
-		background-color: #FFF;
 	}
 }
 
